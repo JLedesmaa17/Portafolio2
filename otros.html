@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre mí - La Absoluta Cabra</title>
+  <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNgc45inYnKwZ_Gr9yFdmgpS4lBtUm_y2Y1g&s" /> <!-- Favicon -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #1f1f1f;
+      color: #f0f0f0;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      color: #00b3b3;
+      margin-bottom: 10px;
+    }
+    header .photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-image: url('https://cloudfront-us-east-1.images.arcpublishing.com/infobae/6YAZAES63VDH7JDW3ETD2HOZNM.jpg'); /* Ruta de la foto */
+      background-size: cover;
+      background-position: center;
+      margin: 0 auto;
+      transition: transform 0.3s ease;
+    }
+    header .photo:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* Bandera de Argentina */
+    .argentina-flag {
+      width: 50px;
+      height: 50px;
+      background-image: url('https://images.vexels.com/media/users/3/152292/isolated/lists/c73bd926f8a552125a2b8999143f5086-logotipo-de-la-seleccion-argentina-de-futbol.png');
+      background-size: cover;
+      margin: 20px auto;
+    }
+
+    /* Lenguajes de programación */
+    .languages {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px; /* Más espacio entre las secciones */
+    }
+    .languages img {
+      width: 60px;
+      height: 60px;
+      transition: transform 0.3s ease;
+    }
+    .languages img:hover {
+      transform: scale(1.2);
+    }
+
+    .about-me {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .about-me h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #00b3b3;
+    }
+    .about-me p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .skills {
+      margin-top: 40px;
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .skills h3 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      color: #00b3b3;
+    }
+    .skill-item {
+      margin-bottom: 15px;
+    }
+    .skill-name {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+      color: #f0f0f0;
+    }
+    .skill-bar {
+      width: 100%;
+      height: 10px;
+      background-color: #404040;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #00b3b3, #009999);
+      transition: width 0.3s ease;
+    }
+    .skill-level {
+      font-size: 0.9em;
+      color: #bbb;
+      margin-top: 2px;
+    }
+
+    .experience {
+      margin-top: 40px;
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .experience h3 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      color: #00b3b3;
+    }
+    .experience ul {
+      list-style: none;
+      margin-left: 20px;
+    }
+    .experience ul li {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #bbb;
+    }
+    footer a {
+      color: #00b3b3;
+      text-decoration: none;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .back-link a {
+      color: #00b3b3;
+      font-size: 1.2em;
+      text-decoration: none;
+    }
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Enlace a la página principal -->
+  <div class="back-link">
+    <a href="index.html">Volver a la página principal</a>
+  </div>
+
+  <!-- Header with name, photo, and flag -->
+  <header>
+    <h1>Ledesma Julián</h1>
+    <!-- Foto de perfil -->
+    <div class="photo"></div>
+    <!-- Bandera de Argentina -->
+    <div class="argentina-flag"></div>
+  </header>
+
+  <!-- Sección de Lenguajes de programación -->
+  <section class="languages">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/512px-Python-logo-notext.svg.png" alt="Python" title="Python">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png" alt="HTML" title="HTML">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS" title="CSS">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1200px-PHP-logo.svg.png" alt="PHP" title="PHP">
+    <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" alt="Java" title="Java">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/640px-JavaScript-logo.png" alt="JavaScript" title="JavaScript">
+  </section>
+
+  <!-- About me section -->
+  <section class="about-me" id="sobre-mi">
+    <h2>¿Quién soy?</h2>
+    <p>
+      Soy un apasionado programador con una gran curiosidad por el mundo digital y las tecnologías que lo conforman. 
+      Me especializo en desarrollo web, con un enfoque particular en tecnologías como JavaScript, React, Node.js y bases de datos NoSQL. 
+      Me encanta resolver problemas complejos con soluciones simples y eficientes. 
+      Trabajo de manera colaborativa con equipos multidisciplinarios y siempre estoy buscando aprender y mejorar mis habilidades.
+    </p>
+    <p>
+      Mi enfoque se basa en crear aplicaciones web y móviles funcionales, eficientes y con una gran experiencia de usuario. 
+      Desde la creación de interfaces limpias hasta la integración de APIs robustas, me esfuerzo por asegurar que cada proyecto sea único y cumpla con los estándares más altos.
+    </p>
+  </section>
+
+  <!-- Skills section -->
+  <section class="skills" id="skills">
+    <h3>Habilidades Técnicas</h3>
+    
+    <div class="skill-item">
+      <div class="skill-name">JavaScript</div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 85%;"></div>
+      </div>
+      <div class="skill-level">Avanzado - 3+ años de experiencia</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-name">HTML5</div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 90%;"></div>
+      </div>
+      <div class="skill-level">Experto - Estructura semántica y accesibilidad</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-name">CSS3</div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 88%;"></div>
+      </div>
+      <div class="skill-level">Avanzado - Flexbox, Grid, animaciones</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-name">PHP</div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 75%;"></div>
+      </div>
+      <div class="skill-level">Intermedio-Avanzado - Laravel, APIs REST</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-name">Python</div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 70%;"></div>
+      </div>
+      <div class="skill-level">Intermedio - Django, automatización</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-name">Java</div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 65%;"></div>
+      </div>
+      <div class="skill-level">Intermedio - POO, Spring Boot básico</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-name">React</div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 80%;"></div>
+      </div>
+      <div class="skill-level">Avanzado - Hooks, Context API, Redux</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-name">Node.js</div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 78%;"></div>
+      </div>
+      <div class="skill-level">Avanzado - Express, MongoDB, APIs</div>
+    </div>
+  </section>
+
+  <!-- Experience section -->
+  <section class="experience" id="experiencia">
+    <h3>Títulos y Experiencia</h3>
+    <ul>
+      <li><strong>Licenciatura en Ciencias de la Computación</strong> - Universidad de la Tecnología (2019)</li>
+      <li><strong>Certificado en Desarrollo Web Full Stack</strong> - Codecademy (2020)</li>
+      <li><strong>3+ años de experiencia en desarrollo frontend y backend</strong> trabajando con equipos ágiles y realizando proyectos a medida.</li>
+      <li><strong>Freelancer</strong> trabajando en una variedad de proyectos web, desde sitios de comercio electrónico hasta aplicaciones SaaS.</li>
+      <li><strong>Contribuciones a proyectos Open Source</strong> en GitHub, ayudando a otros desarrolladores a mejorar el código y la documentación.</li>
+    </ul>
+  </section>
+
+  <!-- Footer with link to GitHub -->
+  <footer>
+    <p>¡Gracias por visitar mi página! <br> ¿Quieres ver más? <a href="https://github.com/tuusuario" target="_blank">Visita mi GitHub</a></p>
+  </footer>
+</body>
+</html>
+

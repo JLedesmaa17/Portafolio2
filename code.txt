@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio Personal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .photo {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background-color: #ddd;
+      background-image: url('tu-foto.jpg'); /* Reemplaza con la ruta real */
+      background-size: cover;
+      background-position: center;
+    }
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .work {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .work h3 {
+      margin-bottom: 10px;
+      color: #007acc;
+    }
+    .social {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .social a {
+      margin: 0 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+    .github-link {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .github-link a {
+      text-decoration: none;
+      background-color: #24292e;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="photo"></div>
+    <h1>Tu Nombre Aquí</h1>
+  </header>
+
+  <section class="portfolio">
+    <div class="work">
+      <h3>Proyecto 1</h3>
+      <p>Descripción breve del proyecto 1.</p>
+    </div>
+    <div class="work">
+      <h3>Proyecto 2</h3>
+      <p>Descripción breve del proyecto 2.</p>
+    </div>
+    <div class="work">
+      <h3>Proyecto 3</h3>
+      <p>Descripción breve del proyecto 3.</p>
+    </div>
+    <div class="work">
+      <h3>Proyecto 4</h3>
+      <p>Descripción breve del proyecto 4.</p>
+    </div>
+    <div class="work">
+      <h3>Proyecto 5</h3>
+      <p>Descripción breve del proyecto 5.</p>
+    </div>
+  </section>
+
+  <div class="social">
+    <a href="https://twitter.com/tuusuario" target="_blank">Twitter</a>
+    <a href="https://linkedin.com/in/tuusuario" target="_blank">LinkedIn</a>
+    <a href="https://instagram.com/tuusuario" target="_blank">Instagram</a>
+  </div>
+
+  <div class="github-link">
+    <a href="https://github.com/tuusuario" target="_blank">Ver en GitHub</a>
+  </div>
+</body>
+</html>

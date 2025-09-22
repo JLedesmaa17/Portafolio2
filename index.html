@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio Personal</title>
+  <link rel="icon" type="image/png" href="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/6YAZAES63VDH7JDW3ETD2HOZNM.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: rgba(31, 31, 31, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 188, 212, 0.2);
+    }
+
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 1.1em;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    nav a:hover::before {
+      left: 100%;
+    }
+
+    nav a:hover {
+      color: #00bcd4;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+      min-height: 400px;
+    }
+
+    .photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 20px;
+      background-image: url('https://cloudfront-us-east-1.images.arcpublishing.com/infobae/6YAZAES63VDH7JDW3ETD2HOZNM.jpg');
+      background-size: cover;
+      background-position: center;
+      transition: all 0.5s ease;
+      box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .photo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(0, 188, 212, 0.1) 50%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .photo:hover::before {
+      opacity: 1;
+    }
+
+    .photo:hover {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 15px 40px rgba(0, 188, 212, 0.4);
+    }
+
+    .header-content {
+      flex: 1;
+      padding-left: 20px;
+    }
+
+    .header-content h1 {
+      font-size: 4em;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #00bcd4, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+
+    .header-subtitle {
+      font-size: 1.4em;
+      color: #b0b0b0;
+      margin-bottom: 15px;
+      font-weight: 300;
+    }
+
+    .header-description {
+      font-size: 1.1em;
+      color: #d0d0d0;
+      max-width: 500px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .header-stats {
+      display: flex;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 15px 20px;
+      background: rgba(0, 188, 212, 0.1);
+      border-radius: 10px;
+      border: 1px solid rgba(0, 188, 212, 0.3);
+    }
+
+    .stat-number {
+      font-size: 1.5em;
+      font-weight: 700;
+      color: #00bcd4;
+    }
+
+    .stat-label {
+      font-size: 0.9em;
+      color: #b0b0b0;
+    }
+
+    .projects-section {
+      padding: 80px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .projects-title {
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #00bcd4, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+
+    .projects-subtitle {
+      text-align: center;
+      font-size: 1.2em;
+      color: #b0b0b0;
+      margin-bottom: 60px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    .work {
+      background: linear-gradient(145deg, #1e1e1e, #252525);
+      padding: 0;
+      border-radius: 20px;
+      text-align: left;
+      transition: all 0.4s ease;
+      overflow: hidden;
+      border: 1px solid rgba(0, 188, 212, 0.1);
+      position: relative;
+    }
+
+    .work::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent, rgba(0, 188, 212, 0.05), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .work:hover::before {
+      opacity: 1;
+    }
+
+    .work:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 188, 212, 0.2);
+      border-color: rgba(0, 188, 212, 0.5);
+    }
+
+    .work-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .work:hover .work-image {
+      transform: scale(1.1);
+    }
+
+    .work-content {
+      padding: 25px;
+    }
+
+    .work h3 {
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      color: #00bcd4;
+      font-weight: 700;
+    }
+
+    .work p {
+      color: #c0c0c0;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      font-size: 0.95em;
+    }
+
+    .work a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(45deg, #00bcd4, #0097a7);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9em;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+    }
+
+    .work a::after {
+      content: '→';
+      transition: transform 0.3s ease;
+    }
+
+    .work a:hover {
+      transform: translateX(5px);
+      box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
+    }
+
+    .work a:hover::after {
+      transform: translateX(3px);
+    }
+
+    .social {
+      text-align: center;
+      margin: 60px 0;
+      padding: 40px;
+      background: rgba(0, 188, 212, 0.05);
+      border-radius: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .social h3 {
+      margin-bottom: 25px;
+      color: #00bcd4;
+      font-size: 1.5em;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(0, 188, 212, 0.1);
+      border: 2px solid rgba(0, 188, 212, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .social img {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1);
+      transition: all 0.3s ease;
+    }
+
+    .social a:hover {
+      background: #00bcd4;
+      border-color: #00bcd4;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 188, 212, 0.3);
+    }
+
+    .github-link {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .github-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      background: linear-gradient(45deg, #24292e, #000000);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .github-link a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    #sobremi {
+      padding: 60px 40px;
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      border-top: 2px solid #00bcd4;
+      text-align: center;
+      max-width: 800px;
+      margin: 60px auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    #sobremi h2 {
+      margin-bottom: 25px;
+      font-size: 2.2em;
+      color: #00bcd4;
+    }
+
+    #sobremi p {
+      font-size: 1.1em;
+      line-height: 1.8;
+      color: #d0d0d0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .header-content h1 {
+        font-size: 2.5em;
+      }
+
+      .header-stats {
+        justify-content: center;
+      }
+
+      .portfolio {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      nav {
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 15px;
+      }
+
+      .projects-title {
+        font-size: 2.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#portfolio">Proyectos</a>
+    <a href="otros.html">Más sobre mí</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <header>
+    <div class="photo"></div>
+    <div class="header-content">
+      <h1>Julián Ledesma</h1>
+      <div class="header-subtitle">Desarrollador de Sistemas Profesionales & Únicos</div>
+      <div class="header-description">
+        <!-- Especializado en desarrollo web moderno con un enfoque en diseño 
+        intuitivo y código limpio. -->
+      </div>
+      <div class="header-stats">
+        <div class="stat">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Proyectos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Dedicación</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Creatividad</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="projects-section">
+    <div class="projects-title">
+      <h2>Mis Proyectos</h2>
+    </div>
+    <div class="projects-subtitle">
+      Cada proyecto representa una oportunidad de aprender y crear algo único
+    </div>
+
+    <div id="portfolio" class="portfolio">
+      <div class="work">
+        <img src="barberia.jpg" alt="Barber Turn" class="work-image">
+        <div class="work-content">
+          <h3>Barber Turn</h3>
+          <p>Sistema de reservas online para barbería con interfaz moderna y funcionalidad completa. Diseñado para optimizar la experiencia tanto del cliente como del barbero.</p>
+          <a href="https://jledesmaa17.github.io/Barber-Turn/" target="_blank">Ver Proyecto</a>
+        </div>
+      </div>
+
+      <div class="work">
+        <img src="fulbito.png" alt="Mi Equipazo" class="work-image">
+        <div class="work-content">
+          <h3>Mi Equipazo</h3>
+          <p>Aplicación para gestión de equipos deportivos con diseño intuitivo. Permite crear, editar y organizar jugadores de manera sencilla y eficiente.</p>
+          <a href="https://jledesmaa17.github.io/Mi-equipo/" target="_blank">Ver Proyecto</a>
+        </div>
+      </div>
+
+      <div class="work">
+        <img src="https://gtamag.com/images/dealer/docktease_gtao_505917.png" alt="Docktease" class="work-image">
+        <div class="work-content">
+          <h3>Docktease</h3>
+          <p>Plataforma de compraventa de embarcaciones con catálogo detallado. Incluye información técnica completa y galería visual para entusiastas de la navegación.</p>
+          <a href="https://jledesmaa17.github.io/docktease/" target="_blank">Ver Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobremi">
+    <h2>Más sobre mí</h2>
+    <p>Soy un desarrollador apasionado por la tecnología y la creatividad digital. Me encanta transformar ideas en realidades digitales que impacten positivamente a los usuarios. Cada línea de código es una oportunidad para crear algo extraordinario.</p>
+  </section>
+
+  <div class="social">
+    <h3>Conectemos</h3>
+    <div class="social-links">
+      <a href="https://x.com/jeroveintidos?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter" />
+      </a>
+      <a href="https://linkedin.com/in/tuusuario" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+      </a>
+      <a href="https://www.instagram.com/lgante_keloke/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      </a>
+    </div>
+  </div>
+
+  <div class="github-link">
+    <a href="https://github.com/JLedesmaa17" target="_blank">
+      <span>Ver en GitHub</span>
+      <span>→</span>
+    </a>
+  </div>
+
+</body>
+</html>
